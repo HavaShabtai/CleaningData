@@ -1,58 +1,44 @@
-#
+# Reading training data from txt files
+subject_train <- read.table("RScripts\\Dataset\\UCIHARDataset\\train\\subject_train.txt", stringsAsFactors = FALSE)
+x_train <- read.table("RScripts\\Dataset\\UCIHARDataset\\train\\X_train.txt", stringsAsFactors = FALSE)
+y_train <- read.table("RScripts\\Dataset\\UCIHARDataset\\train\\y_train.txt", stringsAsFactors = FALSE)
 
-body_acc_x_train <- read.table("C:\\Users\\rostams\\Documents\\R\\Dataset\\UCIHARDataset\\train\\Inertial Signals\\body_acc_x_train.txt")
-body_acc_y_train <- read.table("C:\\Users\\rostams\\Documents\\R\\Dataset\\UCIHARDataset\\train\\Inertial Signals\\body_acc_y_train.txt")
-body_acc_z_train <- read.table("C:\\Users\\rostams\\Documents\\R\\Dataset\\UCIHARDataset\\train\\Inertial Signals\\body_acc_z_train.txt")
-body_gyro_x_train <- read.table("C:\\Users\\rostams\\Documents\\R\\Dataset\\UCIHARDataset\\train\\Inertial Signals\\body_gyro_x_train.txt")
-body_gyro_y_train <- read.table("C:\\Users\\rostams\\Documents\\R\\Dataset\\UCIHARDataset\\train\\Inertial Signals\\body_gyro_y_train.txt")
-body_gyro_z_train <- read.table("C:\\Users\\rostams\\Documents\\R\\Dataset\\UCIHARDataset\\train\\Inertial Signals\\body_gyro_z_train.txt")
-total_acc_x_train <- read.table("C:\\Users\\rostams\\Documents\\R\\Dataset\\UCIHARDataset\\train\\Inertial Signals\\total_acc_x_train.txt")
-total_acc_y_train <- read.table("C:\\Users\\rostams\\Documents\\R\\Dataset\\UCIHARDataset\\train\\Inertial Signals\\total_acc_y_train.txt")
-total_acc_z_train <- read.table("C:\\Users\\rostams\\Documents\\R\\Dataset\\UCIHARDataset\\train\\Inertial Signals\\total_acc_z_train.txt")
-subject_train <- read.table("C:\\Users\\rostams\\Documents\\R\\Dataset\\UCIHARDataset\\train\\subject_train.txt")
-x_train <- read.table("C:\\Users\\rostams\\Documents\\R\\Dataset\\UCIHARDataset\\train\\X_train.txt")
-y_train <- read.table("C:\\Users\\rostams\\Documents\\R\\Dataset\\UCIHARDataset\\train\\y_train.txt")
+# Reading test data from txt files
+subject_test <- read.table("RScripts\\Dataset\\UCIHARDataset\\test\\subject_test.txt", stringsAsFactors = FALSE)
+x_test <- read.table("RScripts\\Dataset\\UCIHARDataset\\test\\X_test.txt", stringsAsFactors = FALSE)
+y_test <- read.table("RScripts\\Dataset\\UCIHARDataset\\test\\y_test.txt", stringsAsFactors = FALSE)
 
+# Reading features and activity labels from txt files
+feats <- read.table("RScripts\\Dataset\\UCIHARDataset\\features.txt", stringsAsFactors = FALSE)
+activity_labels <- read.table("RScripts\\Dataset\\UCIHARDataset\\activity_labels.txt", stringsAsFactors = FALSE)
 
+# Extractining measurements on the mean and standard deviation from each measurement
+meanAndStdRows <- grep(".*mean.*|.*std.*", feats[,2])
+meanAndStdFeat <- feats[meanAndStdRows,2]
+meanAndStdFeatNames <- gsub('[()]', '', meanAndStdFeat)
 
+#binding subject and activity columns into the mean and std columns of the test data set.
+testData <- cbind(subject_test, y_test, x_test[meanAndStdRows])
 
-body_acc_x_test <- read.table("C:\\Users\\rostams\\Documents\\R\\Dataset\\UCIHARDataset\\test\\Inertial Signals\\body_acc_x_test.txt")
-body_acc_y_test <- read.table("C:\\Users\\rostams\\Documents\\R\\Dataset\\UCIHARDataset\\test\\Inertial Signals\\body_acc_y_test.txt")
-body_acc_z_test <- read.table("C:\\Users\\rostams\\Documents\\R\\Dataset\\UCIHARDataset\\test\\Inertial Signals\\body_acc_z_test.txt")
-body_gyro_x_test <- read.table("C:\\Users\\rostams\\Documents\\R\\Dataset\\UCIHARDataset\\test\\Inertial Signals\\body_gyro_x_test.txt")
-body_gyro_y_test <- read.table("C:\\Users\\rostams\\Documents\\R\\Dataset\\UCIHARDataset\\test\\Inertial Signals\\body_gyro_y_test.txt")
-body_gyro_z_test <- read.table("C:\\Users\\rostams\\Documents\\R\\Dataset\\UCIHARDataset\\test\\Inertial Signals\\body_gyro_z_test.txt")
-total_acc_x_test <- read.table("C:\\Users\\rostams\\Documents\\R\\Dataset\\UCIHARDataset\\test\\Inertial Signals\\total_acc_x_test.txt")
-total_acc_y_test <- read.table("C:\\Users\\rostams\\Documents\\R\\Dataset\\UCIHARDataset\\test\\Inertial Signals\\total_acc_y_test.txt")
-total_acc_z_test <- read.table("C:\\Users\\rostams\\Documents\\R\\Dataset\\UCIHARDataset\\test\\Inertial Signals\\total_acc_z_test.txt")
-subject_test <- read.table("C:\\Users\\rostams\\Documents\\R\\Dataset\\UCIHARDataset\\test\\subject_test.txt")
-x_test <- read.table("C:\\Users\\rostams\\Documents\\R\\Dataset\\UCIHARDataset\\test\\X_test.txt")
-y_test <- read.table("C:\\Users\\rostams\\Documents\\R\\Dataset\\UCIHARDataset\\test\\y_test.txt")
+#binding subject and activity columns into the mean and std columns of the training data set.
+trainingData <- cbind(subject_train, y_train, x_train[meanAndStdRows])
 
+#merging training and test data sets into one data set.
+mergedData <- rbind(trainingData,testData)
 
-dim(body_acc_x_train)
-dim(body_acc_y_train)
-dim(body_acc_z_train) 
-dim(body_gyro_x_train)
-dim(body_gyro_y_train)
-dim(body_gyro_z_train)
-dim(total_acc_x_train)
-dim(total_acc_y_train)
-dim(total_acc_z_train)
+# renaming column names into subject and activity
+colnames(mergedData) <- c("subject", "activity", as.character(meanAndStdFeatNames))
 
-dim(body_acc_x_test)
-dim(body_acc_y_test)
-dim(body_acc_z_test) 
-dim(body_gyro_x_test)
-dim(body_gyro_y_test)
-dim(body_gyro_z_test)
-dim(total_acc_x_test)
-dim(total_acc_y_test)
-dim(total_acc_z_test)
+# changing activity column from numbers to the corresponding activiy
+mergedData$activity <- activity_labels[mergedData$activity,]$V2
 
-dim(subject_train)
-dim(x_train)
-dim(y_train)
-dim(subject_test)
-dim(x_test)
-dim(y_test)
+# changing subject and activity columns from numeric and characters into factors
+mergedData$subject <- as.factor(mergedData$subject)
+mergedData$activity <- as.factor(mergedData$activity)
+
+# calculating mean on each columns with respect to a given "subject-activity" pair
+tidy_mean_data <- aggregate(mergedData[3:81],by=list(mergedData$subject, mergedData$activity), mean)
+colnames(tidy_mean_data) <- c("subject", "activity", as.character(meanAndStdFeatNames))
+
+# writing the output into a txt file
+write.table(tidy_mean_data, "tidy.txt", row.names = FALSE, quote = FALSE)
