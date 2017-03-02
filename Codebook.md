@@ -5,57 +5,105 @@ Before reading this codebook, I strongly recommend to take a look at the raw dat
 Here are all the steps that my script is doing on the data. There is a comment on the run_analysis.R associated with each of the steps below.
 
 1) Reading training data from txt files.
+
 2) Reading test data from txt files.
+
 3) Reading features and activity labels from txt files.
+
 4) Extractining measurements on the mean and standard deviation from each measurement.
+
 5) Binding subject and activity columns into the mean and std columns of the test data set.
+
 6) Binding subject and activity columns into the mean and std columns of the training data set.
+
 7) Merging training and test data sets into one data set.
+
 8) Renaming column names into subject and activity.
+
 9) Changing activity column from numbers to the corresponding activiy.
+
 10) Changing subject and activity columns from numeric and characters into factors.
+
 11) Calculating mean on each columns with respect to a given "subject-activity" pair.
+
 12) Writing the output into a txt file.
 
 The tidy output data is going to include 81 columns.
 
 "1","subject"
+
 "2","activity"
+
 "3","tBodyAcc-mean-X"
+
 "4","tBodyAcc-mean-Y"
+
 "5","tBodyAcc-mean-Z"
+
 "6","tBodyAcc-std-X"
+
 "7","tBodyAcc-std-Y"
+
 "8","tBodyAcc-std-Z"
+
 "9","tGravityAcc-mean-X"
+
 "10","tGravityAcc-mean-Y"
+
 "11","tGravityAcc-mean-Z"
+
 "12","tGravityAcc-std-X"
+
 "13","tGravityAcc-std-Y"
+
 "14","tGravityAcc-std-Z"
+
 "15","tBodyAccJerk-mean-X"
+
 "16","tBodyAccJerk-mean-Y"
+
 "17","tBodyAccJerk-mean-Z"
+
 "18","tBodyAccJerk-std-X"
+
 "19","tBodyAccJerk-std-Y"
+
 "20","tBodyAccJerk-std-Z"
+
 "21","tBodyGyro-mean-X"
+
 "22","tBodyGyro-mean-Y"
+
 "23","tBodyGyro-mean-Z"
+
 "24","tBodyGyro-std-X"
+
 "25","tBodyGyro-std-Y"
+
 "26","tBodyGyro-std-Z"
+
 "27","tBodyGyroJerk-mean-X"
+
 "28","tBodyGyroJerk-mean-Y"
+
 "29","tBodyGyroJerk-mean-Z"
+
 "30","tBodyGyroJerk-std-X"
+
 "31","tBodyGyroJerk-std-Y"
+
 "32","tBodyGyroJerk-std-Z"
+
 "33","tBodyAccMag-mean"
+
 "34","tBodyAccMag-std"
+
 "35","tGravityAccMag-mean"
+
 "36","tGravityAccMag-std"
+
 "37","tBodyAccJerkMag-mean"
+
 "38","tBodyAccJerkMag-std"
 "39","tBodyGyroMag-mean"
 "40","tBodyGyroMag-std"
