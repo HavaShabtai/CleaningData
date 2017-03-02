@@ -31,7 +31,7 @@ Here are all the steps that my script is doing on the data. There is a comment o
 
 The result is a table that provides the average value of different variables for an specific subject and activity.
 
-##Activities and Subjects
+## Activities and Subjects
 
 * LAYING
 * SITTING
@@ -42,6 +42,7 @@ The result is a table that provides the average value of different variables for
 
 Subjects are integers ranged from 1 to 30.
 
+## Columns of tidy data
 
 The tidy output data is going to include 81 columns. The first two columns are subjects and activities. The rest of columns include numeric values associated to the average value for that "subject-activity" pair.
 
