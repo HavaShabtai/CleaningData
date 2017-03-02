@@ -42,7 +42,7 @@ The result is a table that provides the average value of different variables for
 
 Subjects are integers ranged from 1 to 30.
 
-## Columns of tidy data
+## Columns of tidy dataset
 
 The tidy output data is going to include 81 columns. The first two columns are subjects and activities. The rest of columns include numeric values associated to the average value for that "subject-activity" pair.
 
