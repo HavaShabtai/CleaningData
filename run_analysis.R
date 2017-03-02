@@ -1,0 +1,58 @@
+#
+
+body_acc_x_train <- read.table("C:\\Users\\rostams\\Documents\\R\\Dataset\\UCIHARDataset\\train\\Inertial Signals\\body_acc_x_train.txt")
+body_acc_y_train <- read.table("C:\\Users\\rostams\\Documents\\R\\Dataset\\UCIHARDataset\\train\\Inertial Signals\\body_acc_y_train.txt")
+body_acc_z_train <- read.table("C:\\Users\\rostams\\Documents\\R\\Dataset\\UCIHARDataset\\train\\Inertial Signals\\body_acc_z_train.txt")
+body_gyro_x_train <- read.table("C:\\Users\\rostams\\Documents\\R\\Dataset\\UCIHARDataset\\train\\Inertial Signals\\body_gyro_x_train.txt")
+body_gyro_y_train <- read.table("C:\\Users\\rostams\\Documents\\R\\Dataset\\UCIHARDataset\\train\\Inertial Signals\\body_gyro_y_train.txt")
+body_gyro_z_train <- read.table("C:\\Users\\rostams\\Documents\\R\\Dataset\\UCIHARDataset\\train\\Inertial Signals\\body_gyro_z_train.txt")
+total_acc_x_train <- read.table("C:\\Users\\rostams\\Documents\\R\\Dataset\\UCIHARDataset\\train\\Inertial Signals\\total_acc_x_train.txt")
+total_acc_y_train <- read.table("C:\\Users\\rostams\\Documents\\R\\Dataset\\UCIHARDataset\\train\\Inertial Signals\\total_acc_y_train.txt")
+total_acc_z_train <- read.table("C:\\Users\\rostams\\Documents\\R\\Dataset\\UCIHARDataset\\train\\Inertial Signals\\total_acc_z_train.txt")
+subject_train <- read.table("C:\\Users\\rostams\\Documents\\R\\Dataset\\UCIHARDataset\\train\\subject_train.txt")
+x_train <- read.table("C:\\Users\\rostams\\Documents\\R\\Dataset\\UCIHARDataset\\train\\X_train.txt")
+y_train <- read.table("C:\\Users\\rostams\\Documents\\R\\Dataset\\UCIHARDataset\\train\\y_train.txt")
+
+
+
+
+body_acc_x_test <- read.table("C:\\Users\\rostams\\Documents\\R\\Dataset\\UCIHARDataset\\test\\Inertial Signals\\body_acc_x_test.txt")
+body_acc_y_test <- read.table("C:\\Users\\rostams\\Documents\\R\\Dataset\\UCIHARDataset\\test\\Inertial Signals\\body_acc_y_test.txt")
+body_acc_z_test <- read.table("C:\\Users\\rostams\\Documents\\R\\Dataset\\UCIHARDataset\\test\\Inertial Signals\\body_acc_z_test.txt")
+body_gyro_x_test <- read.table("C:\\Users\\rostams\\Documents\\R\\Dataset\\UCIHARDataset\\test\\Inertial Signals\\body_gyro_x_test.txt")
+body_gyro_y_test <- read.table("C:\\Users\\rostams\\Documents\\R\\Dataset\\UCIHARDataset\\test\\Inertial Signals\\body_gyro_y_test.txt")
+body_gyro_z_test <- read.table("C:\\Users\\rostams\\Documents\\R\\Dataset\\UCIHARDataset\\test\\Inertial Signals\\body_gyro_z_test.txt")
+total_acc_x_test <- read.table("C:\\Users\\rostams\\Documents\\R\\Dataset\\UCIHARDataset\\test\\Inertial Signals\\total_acc_x_test.txt")
+total_acc_y_test <- read.table("C:\\Users\\rostams\\Documents\\R\\Dataset\\UCIHARDataset\\test\\Inertial Signals\\total_acc_y_test.txt")
+total_acc_z_test <- read.table("C:\\Users\\rostams\\Documents\\R\\Dataset\\UCIHARDataset\\test\\Inertial Signals\\total_acc_z_test.txt")
+subject_test <- read.table("C:\\Users\\rostams\\Documents\\R\\Dataset\\UCIHARDataset\\test\\subject_test.txt")
+x_test <- read.table("C:\\Users\\rostams\\Documents\\R\\Dataset\\UCIHARDataset\\test\\X_test.txt")
+y_test <- read.table("C:\\Users\\rostams\\Documents\\R\\Dataset\\UCIHARDataset\\test\\y_test.txt")
+
+
+dim(body_acc_x_train)
+dim(body_acc_y_train)
+dim(body_acc_z_train) 
+dim(body_gyro_x_train)
+dim(body_gyro_y_train)
+dim(body_gyro_z_train)
+dim(total_acc_x_train)
+dim(total_acc_y_train)
+dim(total_acc_z_train)
+
+dim(body_acc_x_test)
+dim(body_acc_y_test)
+dim(body_acc_z_test) 
+dim(body_gyro_x_test)
+dim(body_gyro_y_test)
+dim(body_gyro_z_test)
+dim(total_acc_x_test)
+dim(total_acc_y_test)
+dim(total_acc_z_test)
+
+dim(subject_train)
+dim(x_train)
+dim(y_train)
+dim(subject_test)
+dim(x_test)
+dim(y_test)
