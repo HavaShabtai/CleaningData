@@ -30,11 +30,10 @@ Here are all the steps that my script is doing on the data. There is a comment o
 
 The tidy output data is going to include 81 columns.
 
-x
-subject
-activity
-tBodyAcc-mean-X
-tBodyAcc-mean-Y
+* subject
+* activity
+* tBodyAcc-mean-X
+*tBodyAcc-mean-Y
 tBodyAcc-mean-Z
 tBodyAcc-std-X
 tBodyAcc-std-Y
