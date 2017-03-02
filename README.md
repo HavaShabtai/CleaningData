@@ -18,3 +18,16 @@ The source of raw data can be found in https://d396qusza40orc.cloudfront.net/get
 
 ##Codebook
 You can look at the codebook.md to get more information on the operations performed on the data.
+
+## Structure of this repository
+
+In adition to this ReadMe file, we are going to have three other files.
+
+* Codebook.md
+This is going to include all the varialbes of the output tidy dataset.
+
+* run_analysis.R
+This is going to be the main script that is performing the operation. More information can be found in the comments and also in the codebook.
+
+* Tidy.txt
+This file includes the output of the script based on the input data.
