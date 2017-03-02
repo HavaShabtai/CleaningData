@@ -13,3 +13,8 @@ This repository performs the following operations on the input data. The script 
 5) From the data set in step 4, creates a second, independent tidy data set with the average of each variable for each activity and each subject.
 
 ##Raw data
+
+The source of raw data can be found in https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip. There is a readme file once you open the zip file that incldues more information.
+
+##Codebook
+You can look at the codebook.md to get more information on the operations performed on the data.
